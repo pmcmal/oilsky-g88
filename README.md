@@ -1,5 +1,3 @@
-Got it! I’ve refined the instructions to specifically point to the Oilsky G88 model name for unlocking the options and corrected the navigation path to the Developer Options menu.
-
 🛠️ Magisk Rooting Guide (Stock Firmware)
 This guide provides a step-by-step walkthrough for rooting your device using Magisk on clean, stock software.
 
