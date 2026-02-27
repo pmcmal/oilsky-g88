@@ -48,7 +48,7 @@ This guide provides a step-by-step walkthrough for rooting your device using Mag
 4. Magisk will generate a file named magisk_xxxx.img (typically saved in the Download folder).
 5. Change your name to magisk_patched, it'll be easier later
 6. Copy this magisk_patched.img back to your computer.
-  Note: Alternatively, you can use the pre-patched boot file provided in the Google Drive link in this repository.
+  Note: Alternatively, you can use the pre-patched boot file provided in the Google Drive link in this repository. https://drive.google.com/file/d/1xSxhixdCyRRYNq9t36CPd77ul7RXDiwC/view?usp=sharing
 
 ---
 
@@ -75,8 +75,11 @@ This guide provides a step-by-step walkthrough for rooting your device using Mag
 6. Try installing Magisk again after it boots up. This time, you'll be presented with a menu to choose a method. Select "Direct install"
 7. A terminal with logs will appear, everything should be ok and it will ask for a reboot at the end
 
+# 🛠️ Clean firmware stock
+https://drive.google.com/file/d/1xSxhixdCyRRYNq9t36CPd77ul7RXDiwC/view?usp=sharing
+
 # 🛠️ Bonus: How to extract boot.img using Python (MTK Client)
-If your device has newer software, I suggest taking a boot.img dump from the device or flashing the system from the link using a flash tool.
+If your device has newer software, I suggest taking a boot.img dump from the device or flashing the system from the link using a flash tool. https://drive.google.com/file/d/1xSxhixdCyRRYNq9t36CPd77ul7RXDiwC/view?usp=sharing
 1. Requirements
 Install Python: pip install mtkclient
 Git clone the tool: git clone https://github.com/bkerler/mtkclient
