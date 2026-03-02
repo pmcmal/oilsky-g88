@@ -84,3 +84,23 @@ If your device has newer software, I suggest taking a boot.img dump from the dev
 Install Python: pip install mtkclient
 Git clone the tool: git clone https://github.com/bkerler/mtkclient
 Install drivers (Usbdk or LibUSB).
+
+
+# Install Viper4Android
+Download ACP https://mmrl.dev/repository/aptoftisk/acp
+Downlaod AML https://mmrl.dev/repository/aptoftisk/aml
+Download Magical OverlayFS https://mmrl.dev/repository/zguectZGR/magisk_overlayfs
+Download Viper4Android RE (zip and apk) https://github.com/AndroidAudioMods/ViPER4Android/releases
+1. First, we add the zip package in magisk overlayfs (it allows us to impose rw permissions on system partitions: /vendor which are read-only by default because the super.img image was introduced in Android 10+. We restart the device. We add the acp package and restart it. We restart the AMLm package. Then we add the Viper4android RE Fork package and install the viper4android application, restart it.
+2. Viper4android Repair Processing: No
+adb shell "cat /vendor/etc/audio_effects.xml | grep -A 5 -B 5 v4a" will show us that the viper4android libraries are loading correctly, but the problem is "audio offload." This is when the system bypasses the entire Android software stack and sends the audio directly to the digital signal processor (DSP).
+3. Enable legacy mode in viper4android by clicking on the wheel (settings) and enabling legacy mode (first option)
+4. In the /vendor/etc/audio_policy_configuration.xml file you need to change <mixPort name="direct_pcm" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT"> to <mixPort name="direct_pcm" role="source" flags=""> and delete in all <routes> <route type="mix" sink="Earpiece" sources="primary output,deep_buffer"/> word direct_pcm to stop direct and allow viper4android to edit sound before send it to ess9018 dac.
+5. Copy audio_policy.. file to windows computer: in cmd: adb pull /vendor/etc/audio_policy_configuration.xml F:\python\audio_policy.xml (change your destination)
+6. Create overlay catalog in device: adb shell su -c "mkdir -p /data/adb/modules/overlayfs/system/vendor/etc/"
+7. Send modified file to device: adb push F:\python\audio_policy.xml /sdcard/audio_policy_configuration.xml
+8. We move files using root and give them permissions: adb shell su -c "mv /sdcard/audio_policy_configuration.xml /data/adb/modules/overlayfs/system/vendor/etc/audio_policy_configuration.xml"
+adb shell su -c "chmod 644 /data/adb/modules/overlayfs/system/vendor/etc/audio_policy_configuration.xml"
+
+> [!Support me]
+> **If I helped, give me a tip, I spent several evenings on it :) https://tipped.pl/pmcmalec
