@@ -92,10 +92,11 @@ Install drivers (Usbdk or LibUSB).
 ---
 
 # Install Viper4Android
-Download ACP https://mmrl.dev/repository/aptoftisk/acp
-Downlaod AML https://mmrl.dev/repository/aptoftisk/aml
-Download Magical OverlayFS https://mmrl.dev/repository/zguectZGR/magisk_overlayfs
-Download Viper4Android RE (zip and apk) https://github.com/AndroidAudioMods/ViPER4Android/releases
+- Download ACP https://mmrl.dev/repository/aptoftisk/acp
+- Downlaod AML https://mmrl.dev/repository/aptoftisk/aml
+- Download Magical OverlayFS https://mmrl.dev/repository/zguectZGR/magisk_overlayfs
+- Download Viper4Android RE (zip and apk) https://github.com/AndroidAudioMods/ViPER4Android/releases
+I add files to the repository if they expire from the internet (often the magisk module or other files disappear)
 1. First, we add the zip package in magisk overlayfs (it allows us to impose rw permissions on system partitions: /vendor which are read-only by default because the super.img image was introduced in Android 10+. We restart the device. We add the acp package and restart it. We restart the AMLm package. Then we add the Viper4android RE Fork package and install the viper4android application, restart it.
 2. Viper4android Repair Processing: No
 adb shell "cat /vendor/etc/audio_effects.xml | grep -A 5 -B 5 v4a" will show us that the viper4android libraries are loading correctly, but the problem is "audio offload." This is when the system bypasses the entire Android software stack and sends the audio directly to the digital signal processor (DSP).
