@@ -102,5 +102,5 @@ adb shell "cat /vendor/etc/audio_effects.xml | grep -A 5 -B 5 v4a" will show us 
 8. We move files using root and give them permissions: adb shell su -c "mv /sdcard/audio_policy_configuration.xml /data/adb/modules/overlayfs/system/vendor/etc/audio_policy_configuration.xml"
 adb shell su -c "chmod 644 /data/adb/modules/overlayfs/system/vendor/etc/audio_policy_configuration.xml"
 
-> [!Support me]
+> [!Warning]
 > **If I helped, give me a tip, I spent several evenings on it :) https://tipped.pl/pmcmalec
