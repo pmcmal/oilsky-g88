@@ -199,7 +199,7 @@ This guide provides a step-by-step walkthrough for rooting your device using Mag
 
 Install Python: pip install mtkclient
 
-Git clone the tool: git clone https://github.com/bkerler/mtkclient or use a copy that works in this repository. Named mtk_client.
+Git clone the tool: git clone https://github.com/bkerler/mtkclient
 
 Install drivers (Usbdk or LibUSB).
 
@@ -277,9 +277,8 @@ To get the best audio experience, follow these steps
 
   
 
->  [!Tip]
-
-> ☕ If I helped, give me a tip, I spent several evenings on it :) https://tipped.pl/pmcmalec
+[!TIP]
+☕ If I helped, give me a tip, I spent several evenings on it :) https://tipped.pl/pmcmalec
 
   
 
