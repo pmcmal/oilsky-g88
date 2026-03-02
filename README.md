@@ -75,8 +75,12 @@ This guide provides a step-by-step walkthrough for rooting your device using Mag
 6. Try installing Magisk again after it boots up. This time, you'll be presented with a menu to choose a method. Select "Direct install"
 7. A terminal with logs will appear, everything should be ok and it will ask for a reboot at the end
 
+---
+
 # 🛠️ Clean firmware stock
 https://drive.google.com/file/d/1xSxhixdCyRRYNq9t36CPd77ul7RXDiwC/view?usp=sharing
+
+---
 
 # 🛠️ Bonus: How to extract boot.img using Python (MTK Client)
 If your device has newer software, I suggest taking a boot.img dump from the device or flashing the system from the link using a flash tool. https://drive.google.com/file/d/1xSxhixdCyRRYNq9t36CPd77ul7RXDiwC/view?usp=sharing
@@ -85,6 +89,7 @@ Install Python: pip install mtkclient
 Git clone the tool: git clone https://github.com/bkerler/mtkclient
 Install drivers (Usbdk or LibUSB).
 
+---
 
 # Install Viper4Android
 Download ACP https://mmrl.dev/repository/aptoftisk/acp
@@ -101,6 +106,7 @@ adb shell "cat /vendor/etc/audio_effects.xml | grep -A 5 -B 5 v4a" will show us 
 7. Send modified file to device: adb push F:\python\audio_policy.xml /sdcard/audio_policy_configuration.xml
 8. We move files using root and give them permissions: adb shell su -c "mv /sdcard/audio_policy_configuration.xml /data/adb/modules/overlayfs/system/vendor/etc/audio_policy_configuration.xml"
 adb shell su -c "chmod 644 /data/adb/modules/overlayfs/system/vendor/etc/audio_policy_configuration.xml"
+9. adb reboot (Restart and check if viper4android works) it should :)
 
 > [!Warning]
-> **If I helped, give me a tip, I spent several evenings on it :) https://tipped.pl/pmcmalec **
+> If I helped, give me a tip, I spent several evenings on it :) https://tipped.pl/pmcmalec
