@@ -275,12 +275,10 @@ To get the best audio experience, follow these steps
 
 ---
 
-  
 
-[!TIP]
-☕ If I helped, give me a tip, I spent several evenings on it :) https://tipped.pl/pmcmalec
+> [!TIP]
+> ☕ If I helped, give me a tip, I spent several evenings on it :) https://tipped.pl/pmcmalec
 
-  
 
 ---
 
