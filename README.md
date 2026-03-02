@@ -1,6 +1,6 @@
 # DAP Oilsky G88 - Magisk Rooting & Audio Guide
 ![Logo](logo.png)
-[![Stars](https://img.shields.io/github/stars/pmcmale/oilsky-g88?style=social)](https://github.com/pmcmal/oilsky-g88)
+[![Stars](https://img.shields.io/github/stars/pmcmal/oilsky-g88?style=social)](https://github.com/pmcmal/oilsky-g88)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 > ⚠️ **Unlock Bootloader = WIPE ALL DATA.** ⚠️
 > Back up your important files before proceeding. Proceed at your own risk!
