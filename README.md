@@ -11,6 +11,206 @@
 > **Backup your important files** before proceeding. **Proceed at your own risk**! If you do something wrong or your device gets damaged, **I'm not responsible**. Although I bricked it three times while creating this repo and managed to rescue it using Flash Tool :)
 
 ---
+
+## 🇵🇱 Wersja polska
+
+> ⚠️ **Odblokowanie bootloadera = WYCZYSZCZENIE WSZYSTKICH DANYCH.** ⚠️
+
+> **Zrób kopię zapasową** ważnych plików przed rozpoczęciem. **Wykonujesz wszystko na własną odpowiedzialność**! Jeśli coś pójdzie nie tak lub urządzenie zostanie uszkodzone, **nie ponoszę odpowiedzialności**. Ja sam trzy razy zamurowałem (zbrickowałem) urządzenie tworząc ten poradnik i za każdym razem udało mi się je uratować za pomocą Flash Tool :)
+
+### 📋 Spis treści
+
+- Przygotowanie systemu i oprogramowania pod Windows
+- Odblokowanie bootloadera (do wgrywania niestandardowych obrazów)
+- Proces patchowania Magiskiem (dostęp root i moduły)
+- Firmware i narzędzia (kilka wskazówek i plików)
+- Patchowanie pliku audio_policy.xml
+- Instalacja Viper4Android (korektor i efekty audio)
+- Bonus i plany na przyszłość (może pomożesz?)
+
+---
+
+## ⚙️ Poradnik rootowania Magiskiem (firmware stockowy)
+
+Ten poradnik krok po kroku pokazuje, jak zrootować urządzenie za pomocą Magiska na czystym, stockowym oprogramowaniu.
+
+> [!WARNING]
+> **Odblokowanie bootloadera wyczyści wszystkie dane użytkownika.** Upewnij się, że zrobiłeś kopię zapasową ważnych plików przed kontynuowaniem.
+
+---
+
+### 1. Przygotowanie systemu
+
+1. Włącz urządzenie i przejdź przez wstępną konfigurację.
+2. **Włącz opcje deweloperskie:** przejdź do **Ustawienia > Informacje o urządzeniu**.
+   * Stuknij wpis **Model (Oilsky G88)** kilkukrotnie (7 razy), aż pojawi się komunikat: *"Jesteś teraz deweloperem!"*
+3. **Skonfiguruj ustawienia deweloperskie:**
+   * Przejdź do **Ustawienia > System > Opcje deweloperskie**.
+   * Włącz **Debugowanie USB**.
+   * Włącz **Odblokowanie OEM**.
+
+---
+
+### 2. 🔓 Odblokowanie bootloadera
+
+1. Podłącz telefon do komputera przez USB.
+2. **Autoryzuj połączenie:** sprawdź ekran telefonu — pojawi się prośba o potwierdzenie. Wybierz **"Zezwól na debugowanie USB"** (zaznacz *"Zawsze zezwalaj z tego komputera"* dla wygody).
+3. Otwórz PowerShell lub CMD i zrestartuj urządzenie do trybu bootloadera:
+
+`adb reboot bootloader`
+
+4. Gdy telefon będzie w trybie Bootloader/Fastboot, wykonaj polecenie odblokowania:
+
+`fastboot oem unlock`
+
+###### Uwaga: Postępuj zgodnie z komunikatami na ekranie telefonu, aby potwierdzić odblokowanie.
+
+---
+
+### 3. 📱 Pierwsze uruchomienie i przygotowanie systemu
+
+1. Po odblokowaniu zrestartuj system:
+
+` fastboot reboot`
+
+2. System wykona reset do ustawień fabrycznych.
+3. Od teraz przy każdym włączeniu urządzenia pojawi się **"Orange state"** — informacja, że urządzenie jest odblokowane; nie da się tego uniknąć.
+4. Ważne: musisz przejść przez proces konfiguracji i ponownie wejść do systemu operacyjnego, aby stan bootloadera został w pełni zarejestrowany przez system, zanim przystąpisz do rootowania.
+5. Ponownie włącz **Debugowanie USB**.
+
+###### Uwaga: pierwsze uruchomienie może chwilę potrwać
+
+---
+
+### 📦 4. Proces patchowania Magiskiem
+
+1. Przenieś stockowy plik boot.img z czystego firmware na pamięć wewnętrzną telefonu.
+2. Zainstaluj aplikację Magisk. / może być na innym urządzeniu
+3. W aplikacji stuknij Install > Select and Patch a File i wskaż swój boot.img.
+4. Magisk wygeneruje plik o nazwie magisk_xxxx.img (zwykle zapisywany w folderze Download).
+5. Zmień nazwę na magisk_patched — będzie łatwiej później.
+6. Skopiuj plik magisk_patched.img z powrotem na komputer.
+
+###### Uwaga: Alternatywnie możesz użyć gotowego, wcześniej spatchowanego pliku boot dostępnego pod linkiem Google Drive w tym repozytorium. [kompletny rom i narzędzie](https://drive.google.com/file/d/1xSxhixdCyRRYNq9t36CPd77ul7RXDiwC/view?usp=sharing "complete rom and tool") — w repo jest to plik patched_boot.zip
+
+---
+
+### 🪄 5. Flashowanie spatchowanego obrazu boot
+
+1. W folderze, w którym masz spatchowany plik boot, kliknij na pasku na górze i wpisz `cmd`, a następnie enter (otworzy się terminal wiersza poleceń).
+2. Zrestartuj telefon ponownie do trybu bootloadera:
+
+`adb reboot bootloader`
+
+3. Wgraj spatchowany obraz do partycji boot:
+
+`fastboot flash boot magisk_patched.img`
+
+5. Zakończ proces restartem:
+
+` fastboot reboot`
+
+---
+
+### 💡 4. Dokończenie instalacji Magiska na urządzeniu
+
+1. Włącz wifi i połącz się z siecią na urządzeniu oilsky.
+2. Aplikacja Magisk powinna być wyszarzona na ekranie — stuknij ją.
+3. Magisk pobierze i zainstaluje pełną, najnowszą wersję apk.
+4. Otwórz aplikację Magisk, zobaczysz opcję install. Kliknij install.
+5. Magisk zrestartuje urządzenie, instalacja zakończy się niepowodzeniem.
+6. Spróbuj zainstalować Magiska ponownie po uruchomieniu systemu. Tym razem pojawi się menu wyboru metody. Wybierz "Direct install".
+7. Pojawi się terminal z logami, wszystko powinno być ok i na końcu pojawi się prośba o restart.
+
+---
+
+## 📂 Czysty firmware stockowy
+
+[link do firmware i flashtool](https://drive.google.com/file/d/1xSxhixdCyRRYNq9t36CPd77ul7RXDiwC/view?usp=sharing "firmware link and flashtool")
+
+---
+
+## ✏️ Dodatek: jak wyciągnąć boot.img za pomocą Pythona (MTK Client)
+
+*Jeśli twoje urządzenie ma nowsze oprogramowanie, sugeruję zrzucenie boot.img bezpośrednio z urządzenia albo wgranie systemu z linku za pomocą flash toola.*
+
+1. Wymagania
+
+Zainstaluj Pythona: pip install mtkclient
+
+Sklonuj narzędzie: git clone https://github.com/bkerler/mtkclient
+
+Zainstaluj sterowniki (Usbdk lub LibUSB).
+
+2. Użyj poleceń mtk client z flagą preloadera wyciągniętą z linku do firmware. Preloader dla tego urządzenia znajduje się w plikach mojego repo.
+
+3. Wgrywanie plików .img przez mtk client powoduje **Red state**, więc pliki wgrywaj tylko przez fastboot!
+
+---
+
+## 🎧 Instalacja Viper4Android
+
+Aby uzyskać najlepsze wrażenia dźwiękowe, wykonaj poniższe kroki.
+
+### 📥 Wymagania wstępne
+*Dodaję pliki do repozytorium, jeśli wygasają w internecie (często moduł magiska lub inne pliki znikają). Mam pewność, że te działają.*
+
+- [ACP (Audio Compatibility Patch)](https://mmrl.dev/repository/aptoftisk/acp "ACP (Audio Compatibility Patch)")
+- [AML (Audio Modification Library)](https://mmrl.dev/repository/aptoftisk/aml "AML (Audio Modification Library)")
+- [Magical OverlayFS](https://mmrl.dev/repository/zguectZGR/magisk_overlayfs "Magical OverlayFS")
+- [Viper4Android RE Fork (najnowszy zip i apk)](https://github.com/AndroidAudioMods/ViPER4Android/releases "Viper4Android RE Fork (latest zip and apk)")
+
+**Podziękowania i szacunek dla wszystkich, którzy napisali i wymyślili te rozwiązania. To ogrom pracy! :)**
+
+### 🚀 Kroki instalacji
+
+1. Zainstaluj Magical OverlayFS w Magisku i zrestartuj. (Daje uprawnienia RW do /vendor).
+2. Zainstaluj ACP w Magisku i zrestartuj.
+3. Zainstaluj AML w Magisku i zrestartuj.
+4. Zainstaluj Viper4Android RE w Magisku i zrestartuj.
+5. Zainstaluj APK Viper4Android.
+
+### 🛠️ Konfiguracja dla przetwornika ESS9018 DAC
+
+**Gotowy plik z modyfikacjami znajdziesz w repo pod nazwą audio_policy_configuration.xml (upewnij się, że twój jest taki sam, jeśli masz nowsze oprogramowanie).**
+
+1. 📝 Viper4android Repair Processing: Nie
+
+`adb shell "cat /vendor/etc/audio_effects.xml | grep -A 5 -B 5 v4a"` pokaże nam, że biblioteki viper4android ładują się poprawnie, ale problemem jest **"audio offload"**. To sytuacja, w której system pomija całą warstwę oprogramowania Androida i wysyła dźwięk bezpośrednio do cyfrowego procesora sygnałowego (DSP).
+
+2. **Włącz tryb legacy** w viper4android, klikając na kółko (ustawienia) i włączając tryb legacy (pierwsza opcja).
+
+3. W pliku `/vendor/etc/audio_policy_configuration.xml` musisz zmienić `<mixPort name="direct_pcm" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT">` na `<mixPort name="direct_pcm" role="source" flags="">` oraz usunąć we wszystkich `<routes>` typu `<route type="mix" sink="Earpiece" sources="primary output,deep_buffer"/>` słowo **direct_pcm**, aby zatrzymać tryb direct i pozwolić viper4android edytować dźwięk, zanim trafi do DAC ess9018.
+
+5. Skopiuj plik audio_policy.. na komputer z Windows: w cmd: `adb pull /vendor/etc/audio_policy_configuration.xml F:\python\audio_policy.xml` (zmień na swoje miejsce docelowe)
+
+6. Utwórz katalog overlay na urządzeniu: `adb shell su -c "mkdir -p /data/adb/modules/overlayfs/system/vendor/etc/"`
+
+7. Wyślij zmodyfikowany plik na urządzenie: `adb push F:\python\audio_policy.xml /sdcard/audio_policy_configuration.xml`
+
+8. 🛡️ Przenosimy pliki z uprawnieniami roota: `adb shell su -c "mv /sdcard/audio_policy_configuration.xml /data/adb/modules/overlayfs/system/vendor/etc/audio_policy_configuration.xml"` i nadajemy im uprawnienia
+
+`adb shell su -c "chmod 644 /data/adb/modules/overlayfs/system/vendor/etc/audio_policy_configuration.xml"`
+
+9. 🔄 `adb reboot` (zrestartuj i sprawdź, czy viper4android działa) powinno działać :)
+
+---
+
+> [!TIP]
+> ☕ Jeśli pomogłem, postaw mi kawę, poświęciłem na to kilka wieczorów :) https://tipped.pl/pmcmalec
+
+---
+
+## 🛠️ Co jeszcze można zrobić?
+
+- 📱 Project Treble: portowanie nowszego, czystego Androida (GSI).
+- 🏗️ TWRP Recovery: rozwijanie custom recovery dla łatwiejszych modyfikacji.
+- 📉 Redukcja szumów: modyfikacja plików /vendor w celu redukcji szumu przy niskiej głośności.
+- ⚡ Optymalizacja: moduły Magiska poprawiające szybkość systemu.
+- 🎶 Aplikacje HiFi: instalacja zaawansowanych aplikacji do odtwarzania (Poweramp, UAPP).
+- 🧹 Debloating: usuwanie zbędnych usług (do czasu pojawienia się TWRP).
+
+---
   
 
 ## 📋 Table of Contents in this repo
