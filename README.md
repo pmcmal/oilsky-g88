@@ -12,7 +12,8 @@
 
 ---
 
-## 🇵🇱 Wersja polska
+<details>
+<summary><h2>🇵🇱 Wersja polska (kliknij, aby rozwinąć)</h2></summary>
 
 > ⚠️ **Odblokowanie bootloadera = WYCZYSZCZENIE WSZYSTKICH DANYCH.** ⚠️
 
@@ -30,7 +31,7 @@
 
 ---
 
-## ⚙️ Poradnik rootowania Magiskiem (firmware stockowy)
+### ⚙️ Poradnik rootowania Magiskiem (firmware stockowy)
 
 Ten poradnik krok po kroku pokazuje, jak zrootować urządzenie za pomocą Magiska na czystym, stockowym oprogramowaniu.
 
@@ -39,7 +40,7 @@ Ten poradnik krok po kroku pokazuje, jak zrootować urządzenie za pomocą Magis
 
 ---
 
-### 1. Przygotowanie systemu
+#### 1. Przygotowanie systemu
 
 1. Włącz urządzenie i przejdź przez wstępną konfigurację.
 2. **Włącz opcje deweloperskie:** przejdź do **Ustawienia > Informacje o urządzeniu**.
@@ -51,7 +52,7 @@ Ten poradnik krok po kroku pokazuje, jak zrootować urządzenie za pomocą Magis
 
 ---
 
-### 2. 🔓 Odblokowanie bootloadera
+#### 2. 🔓 Odblokowanie bootloadera
 
 1. Podłącz telefon do komputera przez USB.
 2. **Autoryzuj połączenie:** sprawdź ekran telefonu — pojawi się prośba o potwierdzenie. Wybierz **"Zezwól na debugowanie USB"** (zaznacz *"Zawsze zezwalaj z tego komputera"* dla wygody).
@@ -67,7 +68,7 @@ Ten poradnik krok po kroku pokazuje, jak zrootować urządzenie za pomocą Magis
 
 ---
 
-### 3. 📱 Pierwsze uruchomienie i przygotowanie systemu
+#### 3. 📱 Pierwsze uruchomienie i przygotowanie systemu
 
 1. Po odblokowaniu zrestartuj system:
 
@@ -82,7 +83,7 @@ Ten poradnik krok po kroku pokazuje, jak zrootować urządzenie za pomocą Magis
 
 ---
 
-### 📦 4. Proces patchowania Magiskiem
+#### 📦 4. Proces patchowania Magiskiem
 
 1. Przenieś stockowy plik boot.img z czystego firmware na pamięć wewnętrzną telefonu.
 2. Zainstaluj aplikację Magisk. / może być na innym urządzeniu
@@ -95,7 +96,7 @@ Ten poradnik krok po kroku pokazuje, jak zrootować urządzenie za pomocą Magis
 
 ---
 
-### 🪄 5. Flashowanie spatchowanego obrazu boot
+#### 🪄 5. Flashowanie spatchowanego obrazu boot
 
 1. W folderze, w którym masz spatchowany plik boot, kliknij na pasku na górze i wpisz `cmd`, a następnie enter (otworzy się terminal wiersza poleceń).
 2. Zrestartuj telefon ponownie do trybu bootloadera:
@@ -112,7 +113,7 @@ Ten poradnik krok po kroku pokazuje, jak zrootować urządzenie za pomocą Magis
 
 ---
 
-### 💡 4. Dokończenie instalacji Magiska na urządzeniu
+#### 💡 4. Dokończenie instalacji Magiska na urządzeniu
 
 1. Włącz wifi i połącz się z siecią na urządzeniu oilsky.
 2. Aplikacja Magisk powinna być wyszarzona na ekranie — stuknij ją.
@@ -124,13 +125,13 @@ Ten poradnik krok po kroku pokazuje, jak zrootować urządzenie za pomocą Magis
 
 ---
 
-## 📂 Czysty firmware stockowy
+### 📂 Czysty firmware stockowy
 
 [link do firmware i flashtool](https://drive.google.com/file/d/1xSxhixdCyRRYNq9t36CPd77ul7RXDiwC/view?usp=sharing "firmware link and flashtool")
 
 ---
 
-## ✏️ Dodatek: jak wyciągnąć boot.img za pomocą Pythona (MTK Client)
+### ✏️ Dodatek: jak wyciągnąć boot.img za pomocą Pythona (MTK Client)
 
 *Jeśli twoje urządzenie ma nowsze oprogramowanie, sugeruję zrzucenie boot.img bezpośrednio z urządzenia albo wgranie systemu z linku za pomocą flash toola.*
 
@@ -148,11 +149,11 @@ Zainstaluj sterowniki (Usbdk lub LibUSB).
 
 ---
 
-## 🎧 Instalacja Viper4Android
+### 🎧 Instalacja Viper4Android
 
 Aby uzyskać najlepsze wrażenia dźwiękowe, wykonaj poniższe kroki.
 
-### 📥 Wymagania wstępne
+#### 📥 Wymagania wstępne
 *Dodaję pliki do repozytorium, jeśli wygasają w internecie (często moduł magiska lub inne pliki znikają). Mam pewność, że te działają.*
 
 - [ACP (Audio Compatibility Patch)](https://mmrl.dev/repository/aptoftisk/acp "ACP (Audio Compatibility Patch)")
@@ -162,7 +163,7 @@ Aby uzyskać najlepsze wrażenia dźwiękowe, wykonaj poniższe kroki.
 
 **Podziękowania i szacunek dla wszystkich, którzy napisali i wymyślili te rozwiązania. To ogrom pracy! :)**
 
-### 🚀 Kroki instalacji
+#### 🚀 Kroki instalacji
 
 1. Zainstaluj Magical OverlayFS w Magisku i zrestartuj. (Daje uprawnienia RW do /vendor).
 2. Zainstaluj ACP w Magisku i zrestartuj.
@@ -170,7 +171,7 @@ Aby uzyskać najlepsze wrażenia dźwiękowe, wykonaj poniższe kroki.
 4. Zainstaluj Viper4Android RE w Magisku i zrestartuj.
 5. Zainstaluj APK Viper4Android.
 
-### 🛠️ Konfiguracja dla przetwornika ESS9018 DAC
+#### 🛠️ Konfiguracja dla przetwornika ESS9018 DAC
 
 **Gotowy plik z modyfikacjami znajdziesz w repo pod nazwą audio_policy_configuration.xml (upewnij się, że twój jest taki sam, jeśli masz nowsze oprogramowanie).**
 
@@ -201,7 +202,7 @@ Aby uzyskać najlepsze wrażenia dźwiękowe, wykonaj poniższe kroki.
 
 ---
 
-## 🛠️ Co jeszcze można zrobić?
+### 🛠️ Co jeszcze można zrobić?
 
 - 📱 Project Treble: portowanie nowszego, czystego Androida (GSI).
 - 🏗️ TWRP Recovery: rozwijanie custom recovery dla łatwiejszych modyfikacji.
@@ -210,8 +211,12 @@ Aby uzyskać najlepsze wrażenia dźwiękowe, wykonaj poniższe kroki.
 - 🎶 Aplikacje HiFi: instalacja zaawansowanych aplikacji do odtwarzania (Poweramp, UAPP).
 - 🧹 Debloating: usuwanie zbędnych usług (do czasu pojawienia się TWRP).
 
+</details>
+
 ---
-  
+
+<details open>
+<summary><h2>🇬🇧 English version (click to collapse)</h2></summary>
 
 ## 📋 Table of Contents in this repo
 
@@ -497,3 +502,5 @@ To get the best audio experience, follow these steps
 - 🎶 HiFi Apps: Installing advanced playback apps (Poweramp, UAPP).
 
 - 🧹 Debloating: Removing unnecessary services (until TWRP is available).
+
+</details>
